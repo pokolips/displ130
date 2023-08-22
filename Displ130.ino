@@ -163,26 +163,34 @@ void u8g_extra_page(uint8_t a)
   }
 }
 void text_Prob() {
-  u8g.drawStr( 0, 12, "WAV -- 00");
-  u8g.setScale2x2();
-  u8g.drawStr( 4, 0, "WAV -- 22");
+ u8g_prepare();
+//u8g.setScale();
+  u8g.drawStr( 0, 0, "-12.36");
+  u8g.drawStr( 36, 0, "-10.10"); //40 
+ //u8g.setScale2x2();
+  u8g.drawStr( 0, 10, "10.22");
+ // u8g.undoScale();
+   u8g.drawStr( 0, 20, "WAV -- 33");
+// u8g.undoScale();
 }
 
 uint8_t draw_state = 0;
 
 void draw(void) {
   u8g_prepare();
-  switch(draw_state >> 3) {
+  text_Prob();
+ /* switch(draw_state >> 3) {
  //   case 0: u8g_box_frame(draw_state&7); break;
  //   case 1: u8g_disc_circle(draw_state&7); break;
   //  case 2: u8g_r_frame(draw_state&7); break;
   //  case 3: u8g_string(draw_state&7); break;
    // case 4: u8g_line(draw_state&7); break;
+   case 4: text_Prob(); break;
    case 5: u8g_triangle(draw_state&7); break;
    case 6: u8g_ascii_1(); break;
    case 7: u8g_ascii_2(); break;
    case 8: u8g_extra_page(draw_state&7); break;
-  }
+  }*/
 }
 
 void setup(void) {
@@ -197,14 +205,18 @@ void setup(void) {
 }
 
 void loop(void) {
-  
+/*  u8g.firstPage();
+  u8g.setFont(u8g_font_unifont);  
+u8g.setPrintPos(0, 20); 
+u8g.print("Hello World!");*/
+
 u8g.firstPage();
-text_Prob();
+//text_Prob();
 //u8g.drawStr( 0, 0, "ASCII page 1");
 // u8g_prepare();
-  u8g.drawStr( 0, 12, "WAV -- 00");
-  u8g.setScale2x2();
-  u8g.drawStr( 4, 0, "WAV -- 22");
+ // u8g.drawStr( 0, 12, "WAV -- 00");
+ // u8g.setScale2x2();
+ // u8g.drawStr( 4, 0, "WAV -- 22");
   // u8g.setScale2x2();
   // delay(6000);
  // u8g .clearDisplay();
