@@ -166,7 +166,7 @@ void text_Prob() {
  u8g_prepare();
 //u8g.setScale();
   u8g.drawStr( 0, 0, "-12.36");
-  u8g.drawStr( 36, 0, "-10.10"); //40 
+  u8g.drawStr( 60, 0, "-10.10"); //60 исправить
  //u8g.setScale2x2();
   u8g.drawStr( 0, 10, "10.22");
  // u8g.undoScale();
@@ -209,7 +209,7 @@ void loop(void) {
   u8g.setFont(u8g_font_unifont);  
 u8g.setPrintPos(0, 20); 
 u8g.print("Hello World!");*/
-
+// писать здесь код и вывести результат
 u8g.firstPage();
 //text_Prob();
 //u8g.drawStr( 0, 0, "ASCII page 1");
