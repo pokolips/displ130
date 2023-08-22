@@ -162,7 +162,11 @@ void u8g_extra_page(uint8_t a)
     u8g.undoScale();
   }
 }
-
+void text_Prob() {
+  u8g.drawStr( 0, 12, "WAV -- 00");
+  u8g.setScale2x2();
+  u8g.drawStr( 4, 0, "WAV -- 22");
+}
 
 uint8_t draw_state = 0;
 
@@ -195,9 +199,11 @@ void setup(void) {
 void loop(void) {
   
 u8g.firstPage();
+text_Prob();
 //u8g.drawStr( 0, 0, "ASCII page 1");
 // u8g_prepare();
-  u8g.drawStr( 0, 4, "WAV -- 00");
+  u8g.drawStr( 0, 12, "WAV -- 00");
+  u8g.setScale2x2();
   u8g.drawStr( 4, 0, "WAV -- 22");
   // u8g.setScale2x2();
   // delay(6000);
