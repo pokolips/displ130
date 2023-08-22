@@ -169,15 +169,15 @@ uint8_t draw_state = 0;
 void draw(void) {
   u8g_prepare();
   switch(draw_state >> 3) {
-    case 0: u8g_box_frame(draw_state&7); break;
-    case 1: u8g_disc_circle(draw_state&7); break;
-    case 2: u8g_r_frame(draw_state&7); break;
-    case 3: u8g_string(draw_state&7); break;
-    case 4: u8g_line(draw_state&7); break;
-    case 5: u8g_triangle(draw_state&7); break;
-    case 6: u8g_ascii_1(); break;
-    case 7: u8g_ascii_2(); break;
-    case 8: u8g_extra_page(draw_state&7); break;
+ //   case 0: u8g_box_frame(draw_state&7); break;
+ //   case 1: u8g_disc_circle(draw_state&7); break;
+  //  case 2: u8g_r_frame(draw_state&7); break;
+  //  case 3: u8g_string(draw_state&7); break;
+   // case 4: u8g_line(draw_state&7); break;
+   case 5: u8g_triangle(draw_state&7); break;
+   case 6: u8g_ascii_1(); break;
+   case 7: u8g_ascii_2(); break;
+   case 8: u8g_extra_page(draw_state&7); break;
   }
 }
 
@@ -194,8 +194,17 @@ void setup(void) {
 
 void loop(void) {
   
-  // picture loop  
-  u8g.firstPage();  
+u8g.firstPage();
+//u8g.drawStr( 0, 0, "ASCII page 1");
+// u8g_prepare();
+  u8g.drawStr( 0, 4, "WAV -- 00");
+  u8g.drawStr( 4, 0, "WAV -- 22");
+  // u8g.setScale2x2();
+  // delay(6000);
+ // u8g .clearDisplay();
+  // picture loop 
+  delay(1000); 
+// u8g.firstPage();  
   do {
     draw();
   } while( u8g.nextPage() );
